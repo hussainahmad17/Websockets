@@ -6,7 +6,6 @@ const app = express()
 
 //  to use websockets, we dont need to listen the app, instead we will use http module to create a server and then pass it to the websocket server
 
-
 const server = http.createServer(app)
 const io = new Server(server)
  
@@ -17,12 +16,10 @@ io.on("connection", (socket) => {
 })
 
 
-
 app.use(express.static(path.resolve("./public")))
 app.get("/", (req, res) => {
     res.sendFile(path.resolve("./public/index.html"))
 })
-
 
 
 server.listen(3000, () => {
